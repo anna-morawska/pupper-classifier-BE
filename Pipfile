@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+
+[packages]
+flask = "==1.1.1"
+gunicorn = "*"
+flask-restplus = "*"
+google-cloud-vision = "*"
+pandas = "*"
+keras = "*"
+numpy = "*"
+tensorflow = "*"
+tensorflow-hub = "*"
+google-cloud-storage = "*"
+
+[requires]
+python_version = "3.7"
