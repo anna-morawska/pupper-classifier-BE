@@ -11,7 +11,7 @@ cryptography==2.8
 firebase==3.0.1
 Flask==1.1.1
 flask-restplus==0.13.0
-gast==0.2.2
+gast==0.3.3
 gcloud==0.18.3
 google-api-core==1.16.0
 google-auth==1.11.3
@@ -60,7 +60,7 @@ scipy==1.4.1
 six==1.14.0
 sseclient==0.0.26
 tensorboard==2.1.1
-tensorflow==2.1.0
+tensorflow==2.0.0
 tensorflow-estimator==2.1.0
 tensorflow-hub==0.7.0
 termcolor==1.1.0
