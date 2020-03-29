@@ -19,6 +19,9 @@ def random_file_name(ext, length):
 @api.route('/upload-image/')
 @api.expect(upload_parser)
 class Upload(Resource):
+    def get(self):
+        return "hello world"
+        
     def post(self):
         args = upload_parser.parse_args()
         uploaded_file = args['file']

@@ -1,11 +1,13 @@
 import werkzeug
 werkzeug.cached_property = werkzeug.utils.cached_property
 from flask import Flask 
+from flask_cors import CORS
 from flask_restplus import Api, Resource, fields
 from os import environ, getenv
 import json
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 environment = getenv('ENV', default='development')

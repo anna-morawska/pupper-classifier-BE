@@ -1,20 +1,36 @@
-# is-it-healthy BE
+# Pupper classifier
 
-This is the backend part of the is-it-healthy app. The frontend can be found [here](https://github.com/kamilkulik/CornDogVsApple-FE)
+The project consists of 3 parts:
 
-is-it-healthy is a pair programming project which goal is to create a mobile app which, based on a picture, can differentiate and classify healthy and unhealthy food.
+### 1. Google collab notebook - https://colab.research.google.com/drive/17Z7-E5G1sa_gZBzxF1JNZOsA05XIwelq
 
-At the moment backend app has a form of a REST API developed with Python Flask-RESTPlus framework, which provides a description of an API compatible with OpenAPI Specification. The complete API documentation can be found [here](https://corn-dog-vs-apple-be.herokuapp.com/)
+It's where the end-to-end multi-class image classifier is built. It uses TensorFlow 2.0 and TensorFlow Hub and Keras sequential API. The model was trained on a set of 10 000+ images from Kaggle's dog breed identification competition.
 
-The main job of the backend app is to process incoming POST requests. The first step is to label the image - for vision detection, the app uses Cloud Vision API.
-The next step is to integrate Natural Language Processing algorithm to classify an image as healthy or unhealthy and send back the label as a response to FE.
+[https://www.kaggle.com/c/dog-breed-identification/data](https://www.kaggle.com/c/dog-breed-identification/data)
 
-### Installing
+It exports the pre-trained model as h5 file.
 
-To run the the containerized version of the backend app, first, you need to create .env file in the project's root directory. Base it off of .env-example file and filled it with our own authentication credentials to your application, Then run:
+### 2. FE - [https://github.com/anna-morawska/pupper-classifier-FE](https://github.com/anna-morawska/pupper-classifier-FE)
 
-```js
-docker-compose up
-```
+created with typescript based on create-react-app boilerplate. It's connected with backend API and allows users to upload a picture and as a response display the result of model prediction as a top 5 indexes of highest probabilities and corresponding dog breed names
 
-and navigate to http://0.0.0.0:5000/
+to start the project run:
+
+1. `npm install`
+2. `npm start`
+
+### 3. BE - [https://github.com/anna-morawska/pupper-classifier-BE](https://github.com/anna-morawska/pupper-classifier-BE)
+
+Backend app is a REST API developed with Python Flask-RESTPlus framework, which provides a description of an API compatible with OpenAPI Specification.
+
+The main job of the backend app is to process incoming POST requests with the image as a payload, pass an image to pre-trained model and
+
+then responds with 10 top probabilities in JSON format.
+
+In the end, the image is saved in Google Firebase Storage.
+
+To run the containerized version of the backend app, first, you need to create `.env` file in the project's root directory. Base it off of `.env-example` file and fill it with your authentication credentials to your application, Then run:
+
+`docker-compose up`
+
+and navigate to [http://0.0.0.0:5000/](http://0.0.0.0:5000/)
