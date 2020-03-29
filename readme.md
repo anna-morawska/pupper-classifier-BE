@@ -23,11 +23,7 @@ to start the project run:
 
 Backend app is a REST API developed with Python Flask-RESTPlus framework, which provides a description of an API compatible with OpenAPI Specification.
 
-The main job of the backend app is to process incoming POST requests with the image as a payload, pass an image to pre-trained model and
-
-then responds with 10 top probabilities in JSON format.
-
-In the end, the image is saved in Google Firebase Storage.
+The main job of the backend app is to process incoming POST requests with the image as a payload, pass an image to pre-trained model and then responds with 10 top probabilities in JSON format. In the end, the image is saved in Google Firebase Storage.
 
 To run the containerized version of the backend app, first, you need to create `.env` file in the project's root directory. Base it off of `.env-example` file and fill it with your authentication credentials to your application, Then run:
 
